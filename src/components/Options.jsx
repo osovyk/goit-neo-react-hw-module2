@@ -1,12 +1,23 @@
-const Options = ({updateFeedback}) => {
+const Options = ({updateFeedback, totalFeedback}) => {
+    const feedbackOptions = ['good', 'neutral', 'bad'];
+
     return (
         <>
-            <button className="feedback-button" onClick={() => updateFeedback('good')}>Good</button>
-            <button className="feedback-button" onClick={() => updateFeedback('neutral')}>Neutral</button>
-            <button className="feedback-button" onClick={() => updateFeedback('bad')}>Bad</button>
-            <button className="feedback-button" onClick={() => updateFeedback('reset')}>Reset</button>
+            {feedbackOptions.map(option => (
+                <button
+                    key={option}
+                    className="feedback-button"
+                    onClick={() => updateFeedback(option)}
+                >{option.charAt(0).toUpperCase() + option.slice(1)}</button>
+            ))}
+            {totalFeedback > 0 && (
+                <button
+                    className="feedback-button"
+                    onClick={() => updateFeedback('reset')}
+                >Reset</button>
+            )}
         </>
-    )
-}
+    );
+};
 
-export default Options
+export default Options;

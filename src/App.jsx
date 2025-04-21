@@ -32,7 +32,7 @@ function App() {
     return (
         <>
             <Description/>
-            <Options updateFeedback={updateFeedback}/>
+            <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback}/>
             {totalFeedback ? (
                 <Feedback
                     good={feedback.good}
